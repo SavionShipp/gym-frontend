@@ -24,6 +24,18 @@ export function GymShowPage() {
       <p>Email:{user.email}</p>
       <hr />
       <img src={user.image_url} />
+      {/* <form>
+         <div>
+           Name: <input defaultValue={user.name} name="name" type="text" />
+         </div>
+         <div>
+           email: <input defaultValue={user.email} name="email" type="text" />
+         </div>
+         <div>
+           image: <input defaultValue={user.image_url} name="image" type="text" />
+         </div>
+         <button type="submit">Update</button> */}
+       {/* </form> */}
       <GymNew onCreate={handleCreate} />
       </div>
   );
