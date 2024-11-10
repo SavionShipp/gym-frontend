@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import axios from 'axios';
 import { Header } from "./Header";
 import { GymIndexPage } from "./GymIndexPage";
-import { GymShow } from "./GymShow";
+import { GymShowPage } from "./GymShowPage";
 import { Footer } from "./Footer";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
@@ -36,7 +36,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/:id",
-        element: <GymShow />,
+        element: <GymShowPage />,
+        loader: ({ params }) => axios.get(`http://localhost:3000/user/${params.id}.json`).then(response => response.data)
       }
     ]
   }
