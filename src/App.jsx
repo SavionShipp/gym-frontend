@@ -1,14 +1,49 @@
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import axios from 'axios';
 import { Header } from "./Header";
-import { GymPage } from "./GymPage";
+import { GymIndexPage } from "./GymIndexPage";
+import { GymShow } from "./GymShow";
 import { Footer } from "./Footer";
+import { SignupPage } from "./SignupPage";
+import { LoginPage } from "./LoginPage";
+import { LogoutLink } from "./LogoutLink";
+
+
+const router = createBrowserRouter([
+  {
+    element: (
+      <div>
+        <Header />
+        <LogoutLink />
+        <Outlet />
+        <Footer />
+      </div>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <GymIndexPage />,
+        loader: ()=>
+          axios.get("http://localhost:3000/exercises.json").then(response => response.data)
+      },
+      {
+        path: "signup",
+        element: <SignupPage />
+      },
+      {
+        path: "login",
+        element: <LoginPage />
+      },
+      {
+        path: "/user/:id",
+        element: <GymShow />,
+      }
+    ]
+  }
+])
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <GymPage />
-      <Footer />
-    </div>
+  return (<RouterProvider router={router} />
   )
 }
 
