@@ -1,3 +1,4 @@
+
 export function GymNew({onCreate}) {
 
   const handleSubmit = (event) => {
@@ -5,6 +6,7 @@ export function GymNew({onCreate}) {
          const params = new FormData(event.target);
          onCreate(params, () => event.target.reset());
        };
+
 
   return (
     <div>

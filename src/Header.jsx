@@ -17,7 +17,8 @@ export function Header() {
   return (
     <header>
       <nav>
-        <div> <Link to="/">GymBuddy</Link>
+        <div> 
+          <Link to="/">GymBuddy</Link>
         </div>
       </nav>
       {authenticationLinks}

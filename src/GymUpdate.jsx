@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function PhotoForm() {
+export default function UserForm() {
   const [user, setUser] = useState([]);
   const handleUpdate = (id, params, successCallback) => {
     console.log('handleUpdate', params);
