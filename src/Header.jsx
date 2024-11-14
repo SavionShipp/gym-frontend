@@ -5,8 +5,8 @@ export function Header() {
   if (localStorage.jwt === undefined) {   
     authenticationLinks = (
       <div>
-        <a href="/login">Login</a> | 
-        <a href="/signup">Signup</a>
+        <a href="/login"> Login</a> | 
+        <a href="/signup"> Signup</a>
       </div>
     )
   }  else {  
@@ -18,10 +18,12 @@ export function Header() {
     <header>
       <nav>
         <div> 
-          <Link to="/">GymBuddy</Link>
+          <Link to="/">GymBuddy</Link> |
+          <Link to="/exercisenew"> New Exercise</Link> |
+          {authenticationLinks}
         </div>
       </nav>
-      {authenticationLinks}
+      {/* {authenticationLinks} */}
     </header>
   )
 }

@@ -7,6 +7,7 @@ import { Footer } from "./Footer";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { LogoutLink } from "./LogoutLink";
+import { GymNewPage } from "./GymNewPage";
 
 
 
@@ -36,9 +37,13 @@ const router = createBrowserRouter([
         element: <LoginPage />
       },
       {
-        path: "/user/:id",
+        path: "/routines",
         element: <GymShowPage />,
-        loader: ({ params }) => axios.get(`http://localhost:3000/user/${params.id}.json`).then(response => response.data)
+        loader: () => axios.get(`http://localhost:3000/routines.json`).then(response => response.data)
+      },
+      {
+        path: "/exercisenew",
+        element: <GymNewPage />
       }
     ]
   }
