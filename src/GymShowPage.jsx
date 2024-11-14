@@ -1,21 +1,10 @@
 import { useLoaderData } from "react-router-dom";
-import axios from 'axios';
-import { GymNew } from "./GymNew";
+
 
 export function GymShowPage() {
   const routines = useLoaderData();
 
-  const handleCreate = (exercise,params, successCallback) => {
-    console.log("handleCreate", params);
-    axios.post(`http://localhost:3000/exercise/${exercise.id}.json`, params)
-      .then((response) => {
-        console.log(response.data); 
-        successCallback();
-      })
-      .catch((error) => {
-        console.error("Error creating exercise:", error); 
-      });
-  };
+
 
   console.log(routines);
 
@@ -36,7 +25,7 @@ export function GymShowPage() {
           </video>
         </div>
       ))}
-      <GymNew onCreate={handleCreate} />
+
     </div> 
   );
   

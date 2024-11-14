@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: (
       <div>
         <Header />
-        <LogoutLink />
+        {/* <LogoutLink /> */}
         <Outlet />
         <Footer />
       </div>
@@ -25,8 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <GymIndexPage />,
-        loader: ()=>
-          axios.get("http://localhost:3000/exercises.json").then(response => response.data)
+        loader: () => axios.get(`http://localhost:3000/routines.json`).then(response => response.data)
       },
       {
         path: "signup",
@@ -35,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />
+      },
+      {
+        path: "logout",
+        element: <LogoutLink />
       },
       {
         path: "/routines",

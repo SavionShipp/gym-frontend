@@ -18,3 +18,4 @@ return (
   <GymNew onCreate={handleCreate} />
 );
 }
+

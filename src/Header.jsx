@@ -20,7 +20,8 @@ export function Header() {
         <div> 
           <Link to="/">GymBuddy</Link> |
           <Link to="/exercisenew"> New Exercise</Link> |
-          {authenticationLinks}
+          {authenticationLinks} |
+          <LogoutLink />
         </div>
       </nav>
       {/* {authenticationLinks} */}
