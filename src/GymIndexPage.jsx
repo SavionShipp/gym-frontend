@@ -5,8 +5,12 @@ export function GymIndexPage() {
   const navigate = useNavigate();
   const routines = useLoaderData();
 
-  const handleNavigate = (id) => {
-    navigate(`/routines/${id}`);
+  const handleNavigate = () => {
+    navigate(`/routines`);
+
+  }
+
+  const handleHearted = () => {
 
   }
 
@@ -32,6 +36,7 @@ export function GymIndexPage() {
             <p>Description: {routine.exercise.description}</p>
             <p>{routine.sets}</p>
             <p>{routine.reps}</p>
+            <button onClick={handleHearted}>Like</button>
           </div>
         ))}
       </div>
