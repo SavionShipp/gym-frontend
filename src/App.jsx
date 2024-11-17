@@ -8,6 +8,7 @@ import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { LogoutLink } from "./LogoutLink";
 import { GymNewPage } from "./GymNewPage";
+import { HeartIndexPage } from "./HeartIndexPage";
 
 
 
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
       {
         path: "/exercisenew",
         element: <GymNewPage />
+      },
+      {
+        path: "/hearts",
+        element: <HeartIndexPage />,
+        loader: () => axios.get(`http://localhost:3000/hearts.json`).then(response => response.data)
       }
     ]
   }
